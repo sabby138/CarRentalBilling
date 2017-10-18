@@ -230,8 +230,7 @@ h3.tittle {
     -moz-border-top-right-radius: 0.3em;
     -webkit-border-top-right-radius: 0.3em;
 	}
-.first-one input[type="text"],.first-one input[type="password"]{
-   width: 100%;
+.first-one input[type="text"],.first-one input[type="password"],.first-one select{
     padding: 1em 4em 1em 1em;
     color: #858282;
     font-size: 16px;
@@ -1138,6 +1137,7 @@ li.com a:hover{
     color: #777;
 }
 .pricing-grids {
+	background-color:grey;
     margin: 3em auto;
 }
 .pricing-grid {
@@ -3166,4 +3166,6 @@ a.hvr-hollow:hover,a.hvr-hollow:focus,a.hvr-hollow:active {
 		font-size:1.6em;
 		color: #34495e;
 	}
-}
+	.bgcolor{
+	background-color:#e5e5e5;
+	}

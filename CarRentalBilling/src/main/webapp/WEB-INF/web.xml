@@ -3,6 +3,7 @@
   <display-name>CarRentalBilling</display-name>
   <welcome-file-list>
     <welcome-file>/JSPs/index.jsp</welcome-file>
+    <welcome-file>/JSPs/harcodedInvoice.jsp</welcome-file>
   </welcome-file-list>
   
   <servlet>

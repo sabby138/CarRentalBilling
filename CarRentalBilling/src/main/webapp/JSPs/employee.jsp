@@ -14,9 +14,11 @@
 	 <div class="col-md-4 first-one">
 	  <div class="first-one-inner">
 	     <h3 class="tittle">Sign up</h3>
-		<form:form action="/CarRentalBilling/all/save" method="post">
+		<form:form action="/CarRentalBilling/all/save" method="post" commandName="emp">
 			<form:input  path="firstName" class="text" value="First Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}" />
+			<form:errors path="firstName" />
 			<form:input  path="lastName" class="text" value="Last Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}" />
+			<form:errors path="lastName" />
 			<%--<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> --%>
 			<div class="submit"><input type="submit" value="Sign up" ></div>
 			<div class="clearfix"></div>
@@ -25,7 +27,7 @@
 			</div>--%>
 		</form:form>
 	   </div>
-	   <a href="#" class="hvr-bounce-to-bottom">Sign in with Twitter</a>
+	  <%-- <a href="#" class="hvr-bounce-to-bottom">Sign in with Twitter</a>--%>
       </div>
 
 </body>

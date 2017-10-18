@@ -16,12 +16,12 @@ public class EmployeeController {
 
 	@RequestMapping(method=RequestMethod.GET,  value="/create")
 	public ModelAndView createEmployee(ModelAndView modelAndView){
-		modelAndView.addObject("command", new EmployeeForm()) ;
+		modelAndView.addObject("emp", new EmployeeForm()) ;
 		modelAndView.setViewName("employee");
 		return modelAndView;
 	} 
 	
-	@RequestMapping(method=RequestMethod.POST,  value="/save")
+	/*@RequestMapping(method=RequestMethod.POST,  value="/save")
 	public ModelAndView saveEmployee(@Valid @ModelAttribute("employeeForms") EmployeeForm employeeForm, BindingResult bindingResult){
 		System.out.println(employeeForm.getFirstName() + "  "+employeeForm.getLastName());
 		ModelAndView modelAndView = new ModelAndView();
@@ -32,6 +32,22 @@ public class EmployeeController {
 		}else {
 			
 			modelAndView.addObject("command", employeeForm) ;
+			modelAndView.addObject("validationMsg", "Employee has been created successfully !");	
+			modelAndView.setViewName("employee");
+		}
+		return modelAndView;
+	} */
+	
+	@RequestMapping(method=RequestMethod.POST,  value="/save")
+	public ModelAndView saveEmployee(@Valid @ModelAttribute() EmployeeForm employeeForm, BindingResult bindingResult){
+		System.out.println(employeeForm.getFirstName() + "  "+employeeForm.getLastName());
+		ModelAndView modelAndView = new ModelAndView();
+		if(bindingResult.hasErrors()){
+			
+			modelAndView.addObject("emp", employeeForm) ;
+			modelAndView.setViewName("employee");
+		}else {
+			modelAndView.addObject("emp", new EmployeeForm()) ;
 			modelAndView.addObject("validationMsg", "Employee has been created successfully !");	
 			modelAndView.setViewName("employee");
 		}
