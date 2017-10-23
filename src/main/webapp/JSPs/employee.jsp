@@ -1,7 +1,8 @@
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html;charset=utf-8"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,33 +15,35 @@
 <title>Car Rental Invoice</title>
 </head>
 <body ng-app="employee">
-	 <div class="col-md-10 first-one" >
+	 <div class="col-md-10 first-one" ng-controller="employeeController as empCon">
 	  <div class="first-one-inner">
-	     <h3 class="tittle">Sign up</h3>
-<%@ include file="/JSPs/acknowledgement.jsp" %>
-		<form:form action="/CarRentalBilling/all/save" method="post" commandName="emp" ng-controller="employeeController as empCon">
+	     <h3 class="tittle"><spring:message code="label.signup"/></h3>
+	     
+
+		<form:form action="/CarRentalBilling/all/save" method="post" commandName="emp" >
+	<%@ include file="/JSPs/acknowledgement.jsp" %>	
 			<div>
-				<form:input  path="firstName" class="text" value="" onfocus="empCon.clearFields();" onblur="if (this.value == '') {this.value = 'First Name';}" />
+				<form:input  path="firstName" class="text" ng-focus="empCon.clearFields($event);" ng-blur="empCon.setDefaultValues($event,'First Name');" />
 				<font color="red"><form:errors path="firstName" /></font>
 			</div>
 			<div>
-				<form:input  path="lastName" class="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}" />
+				<form:input  path="lastName" class="text"  ng-focus="empCon.clearFields($event);" ng-blur="empCon.setDefaultValues($event,'last Name');" />
 				<font color="red"><form:errors path="lastName" /></font>
 			</div>
 			<div>
-				<form:input  path="mobileNo" class="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile No.';}" />
+				<form:input  path="mobileNo" class="text"  ng-focus="empCon.clearFields($event);" ng-blur="empCon.setDefaultValues($event,'Mobile No.');" />
 				<font color="red"><form:errors path="mobileNo" /></font>
 			</div>
 			<div>
-				<form:input  path="emailId" class="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email-Id';}" />
+				<form:input  path="emailId" class="text"  ng-focus="empCon.clearFields($event);" ng-blur="empCon.setDefaultValues($event,'Email-Id');" />
 				<font color="red"><form:errors path="emailId" /></font>
 			</div>
 			<div>
-				<form:input type="date" path="empDOB" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'DOB';}" />
+				<form:input type="date" path="empDOB" class="text"   />
 				<font color="red"><form:errors path="empDOB" /></font>
 			</div>
 			<div>
-				<form:select  path="roles"  class="text" onblur="if (this.value == '') {this.value = '-1';}">
+				<form:select  path="roles"  class="text" >
 				<option value="-1">--Select Roles--</option>
 					  <option value="0">Volvo</option>
 					  <option value="1">Saab</option>
@@ -50,11 +53,11 @@
 				<font color="red"><form:errors path="roles" /></font>
 			</div>
 			<div>
-				<form:input path="empAddress.city" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'city';}" />
+				<form:input path="empAddress.city" class="text" ng-focus="empCon.clearFields($event);" ng-blur="empCon.setDefaultValues($event,'City');" />
 				<font color="red"><form:errors path="empAddress.city" /></font>
-				<form:input path="empAddress.street" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'street';}" />
+				<form:input path="empAddress.street" class="text"  ng-focus="empCon.clearFields($event);" ng-blur="empCon.setDefaultValues($event,'Street');" />
 				<font color="red"><form:errors path="empAddress.street" /></font>
-				<form:input path="empAddress.pincode" class="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'pin code';}" />
+				<form:input path="empAddress.pincode" class="text" ng-focus="empCon.clearFields($event);" ng-blur="empCon.setDefaultValues($event,'Pin code');" />
 				<font color="red"><form:errors path="empAddress.pincode" /></font>
 			</div>
 			
@@ -63,9 +66,6 @@
 		</form:form>
 		
 		
-		<form ng-controller="myCon">
-		<input type="text"  onblur="go();" ng-model = "text1">
-		</form>
 	   </div>
       </div>
 

@@ -9,7 +9,7 @@
 	<description>A web app for Billing cars on rent.</description>
 	<properties>
 
-		<spring.version>3.0.1.RELEASE</spring.version>
+		<spring.version>4.0.0.RELEASE</spring.version>
 
 	</properties>
 
@@ -46,7 +46,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>4.1.0.Final</version>
+			<version>5.2.4.Final</version>
 		</dependency>
 
 		<!-- Servlet -->

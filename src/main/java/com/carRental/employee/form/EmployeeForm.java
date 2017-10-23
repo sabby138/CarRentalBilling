@@ -3,6 +3,7 @@ package com.carRental.employee.form;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
@@ -10,10 +11,14 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.carRental.employee.ThanePinCode;
+
 public class EmployeeForm {
 
 	public EmployeeForm() {
-
+		this.firstName = "First Name";
+		this.lastName = "Last Name";
+		this.emailId = "Email-Id";
 	}
 	
 	@NotNull
@@ -23,13 +28,14 @@ public class EmployeeForm {
 	@Size(min=2,max=15,message="Last Name")
 	private String lastName;
 	
-	//@Digits(fraction = 0, integer = 10, message="Mobile No.")
-	private Integer mobileNo;
+	@Digits(fraction = 0, integer = 10, message="Mobile No. should be consisted of 10 digits.")
+	@ThanePinCode(startsWith="8655",maxLength=10,message="10 numberi daala de bawa")
+	private Long mobileNo;
 	
 	@Email
 	private String emailId;
 	
-	@NotNull
+	//@NotNull    Commented for now
 	@Past
 	private Date empDOB;
 	
@@ -73,10 +79,10 @@ public class EmployeeForm {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public Integer getMobileNo() {
+	public Long getMobileNo() {
 		return mobileNo;
 	}
-	public void setMobileNo(Integer mobileNo) {
+	public void setMobileNo(Long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
 	public ArrayList<String> getRoles() {
@@ -85,4 +91,5 @@ public class EmployeeForm {
 	public void setRoles(ArrayList<String> roles) {
 		this.roles = roles;
 	}
+	
 }

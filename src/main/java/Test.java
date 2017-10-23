@@ -1,3 +1,5 @@
+import java.nio.channels.WritableByteChannel;
+
 import org.bson.BsonDocument;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -9,6 +11,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.MongoCredential;
+import com.mongodb.WriteResult;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
@@ -23,7 +26,7 @@ public class Test {
 					);
 			System.out.println("done");
 			
-			DB database = mongoClient.getDB("carrentalbilling");
+			DB database = mongo.getDB("carrentalbilling");
 			System.out.println("name: "+database.getName());
 			
 			/*List<String> dblist =  mongoClient.getDatabaseNames();
@@ -43,7 +46,12 @@ public class Test {
 			*/
 			BasicDBObject basicDBObject = new BasicDBObject("firstName","avani")
 														.append("lastName", "masuria");
-			collection.insert(basicDBObject);
+			WriteResult w=  collection.insert(basicDBObject);
+			System.out.println("w b4 "+w);
+			if(w.wasAcknowledged()){
+				System.out.println("w "+w);
+			}
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,6 +1,9 @@
 Topics Covered:
 
 Spring-
-1) Form Validations-Hibernator Validator framework
+1) Form Validations-Hibernate Validator framework
 2) data binding
 3) Spring messageSource
+4) Custom property Editors
+5) Custom Constraint Validator with Custom attributes.
+6)Interceptors

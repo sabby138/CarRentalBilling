@@ -1,9 +1,16 @@
 var employeeApp = angular.module("employee",[]);
 employeeApp.controller("employeeController", function(){
-	this.clearFields = function(){
-		obj.value = '';
+	this.clearFields = function($event){
+		$event.target.value = '';
 	};
-
+	
+	this.setDefaultValues = function($event, label){
+		if($event.target.value == ''){
+			console.log('setDefaultValues');
+			$event.target.value = label;
+		}
+	}
+	
 });
 
 

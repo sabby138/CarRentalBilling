@@ -18,11 +18,39 @@
      <property name="prefix" value="/JSPs/"/>   
      <property name="suffix" value=".jsp"/>
     </bean>
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/routeToEntryPage" />
+			<bean class="com.carRental.ExpiryInterceptor"></bean>
+		</mvc:interceptor>
+		
+		<bean id="localeChangeInterceptor"
+			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="siteLanguage" />
+		</bean>
+		<!-- <bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+			<property name="paramName" value="siteTheme" />
+		</bean> -->
+	</mvc:interceptors>
+
     
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-    <property name="basename">
-        <value>/WEB-INF/AppResource</value>
-    </property>
-</bean>
+	<!-- <bean id="themeSource" class="org.springframework.ui.context.support.ResourceBundleThemeSource">
+        <property name="basenamePrefix" value="theme-"/>
+    </bean>
+
+    <bean id="themeResolver" class="org.springframework.web.servlet.theme.CookieThemeResolver">
+        <property name="defaultThemeName" value="bright"/>
+    </bean> -->
+    
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver"/>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename">
+			<value>/WEB-INF/AppResource</value>
+		</property>
+	</bean>
+	 
     
 </beans>    
