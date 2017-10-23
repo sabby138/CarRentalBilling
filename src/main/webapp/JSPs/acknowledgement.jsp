@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>${validationMsg}</h2>
+<div class="alert ${msgType} ">
+  <strong>${headerMsg}</strong>
+</div>
+<h2></h2>
 </body>
 </html>

@@ -15,8 +15,10 @@
     <div class="mid-menu">
 	   <span class="menu2"><lable> MENU</lable></span>
 	   <ul class="effct1" style="display: block;">
-		<li><a href="/CarRentalBilling/all/create">Create Employee<span>30</span></a></li>                                             
-		<li><a href="#">Invite<span>05</span></a></li>
+		<li><a href="/CarRentalBilling/all/create/N">Create Employee<span>30</span></a></li>
+		<%--<li><a href="/CarRentalBilling/all/create?editable=Y&tempVar=132">Create Employee 2 request params<span>30</span></a></li> --%>
+		<%-- <li><a href="/CarRentalBilling/all/create/Y/132">Create Employee map All path vars<span>30</span></a></li>--%>                                             
+		<li><a href="/CarRentalBilling/all/create/Y">Edit Employee<span>05</span></a></li>
 		<li><a href="#">Events<span>10</span></a></li>  
 		<li><a href="#">Account Settings</a></li>  
 		<li><a href="#">Folder</a></li> 
